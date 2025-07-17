@@ -1,321 +1,1068 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdullah's Personal Website</title>
+    <title>نظام إدارة الموظفين والمعدات - ولاء المستقبل للمقاولات</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            padding-top: 100px;
-            transition: background-color 0.3s, color 0.3s;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            direction: rtl;
         }
-        header {
-            background: linear-gradient(to right, #4facfe, #00f2fe);
-            padding: 60px 0;
-            opacity: 0;
-            transform: translateY(-50px);
-            animation: fadeInDown 1s forwards;
-        }
-        header h1 {
-            font-weight: bold;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-        }
+        
         .navbar {
-            background-color: #333;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: background-color 0.3s;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        .navbar.transparent {
-            background-color: rgba(51, 51, 51, 0.5);
+        
+        .navbar-brand {
+            font-weight: bold;
+            color: white !important;
         }
-        .navbar-nav .nav-link {
-            color: #fff !important;
-            transition: color 0.3s;
+        
+        .nav-link {
+            color: white !important;
+            transition: all 0.3s ease;
         }
-        .navbar-nav .nav-link:hover {
-            color: #00f2fe !important;
+        
+        .nav-link:hover {
+            color: #ffd700 !important;
+            transform: translateY(-2px);
         }
-        #about {
-            padding-top: 100px;
-            opacity: 0;
-            transform: translateY(50px);
-            animation: fadeInUp 1s forwards;
+        
+        .main-content {
+            margin-top: 80px;
+            padding: 20px;
         }
-        #about img {
-            border: 5px solid #4facfe;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        #about img:hover {
-            transform: scale(1.05);
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
-        }
-        .btn-primary {
-            background-color: #4facfe;
-            border: none;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        .btn-primary:hover {
-            background-color: #00c6ff;
-            transform: translateY(-3px);
-        }
-        .btn-outline-primary {
-            border-color: #4facfe;
-            color: #4facfe;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .btn-outline-primary:hover {
-            background-color: #4facfe;
-            color: #fff;
-        }
+        
         .card {
             border: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
+        
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
-        section {
-            padding: 60px 0;
-            opacity: 0;
-            transform: translateY(50px);
-            animation: fadeInUp 1s forwards;
-        }
-        .text-center h2 {
-            margin-bottom: 40px;
-            font-weight: bold;
-            color: #4facfe;
-        }
-        .whatsapp-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25d366;
+        
+        .card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s;
-            z-index: 1000;
+            border-radius: 15px 15px 0 0 !important;
+            padding: 15px 20px;
         }
-        .whatsapp-button:hover {
-            transform: scale(1.1);
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
         }
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
-        @keyframes fadeInDown {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+            border: none;
+            border-radius: 10px;
+        }
+        
+        .btn-warning {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border: none;
+            border-radius: 10px;
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+            border: none;
+            border-radius: 10px;
+        }
+        
+        .form-control {
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        
+        .table {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .table thead th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+        
+        .status-active {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        .status-inactive {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        .status-maintenance {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .dashboard-stats {
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .image-preview {
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 10px;
+            margin: 5px;
+        }
+        
+        .search-box {
+            margin-bottom: 20px;
+        }
+        
+        .filter-section {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Abdullah's Site</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-building"></i>
+                ولاء المستقبل للمقاولات
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
+                        <a class="nav-link" href="#" onclick="showSection('dashboard')">
+                            <i class="fas fa-tachometer-alt"></i> الرئيسية
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#skills">Skills</a>
+                        <a class="nav-link" href="#" onclick="showSection('employees')">
+                            <i class="fas fa-users"></i> الموظفين
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
+                        <a class="nav-link" href="#" onclick="showSection('equipment')">
+                            <i class="fas fa-tools"></i> المعدات
+                        </a>
                     </li>
                 </ul>
-                <button class="btn btn-outline-light ms-3" id="toggleLang">AR</button>
             </div>
         </div>
     </nav>
 
-    <header class="text-white text-center py-5">
-        <div class="container">
-            <h1>Welcome to Abdullah's Personal Website</h1>
-            <p class="lead">I am Abdullah, a Web Developer and Tech Enthusiast</p>
-        </div>
-    </header>
-
-    <section id="about" class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <img src="per2fil.jpg" class="img-fluid rounded-circle" alt="Profile Picture">
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Dashboard Section -->
+        <div id="dashboard-section" class="section">
+            <div class="row dashboard-stats">
+                <div class="col-md-3 mb-3">
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-employees">0</div>
+                        <div>إجمالي الموظفين</div>
+                    </div>
                 </div>
-                <div class="col-md-8">
-                    <h2>About Me</h2>
-                    <p>Hi! My name is Abdullah, and I am passionate about technology, programming, and web development. I love creating beautiful and interactive websites to provide the best user experience. With years of experience in front-end technologies, I am dedicated to continuous learning and development. I am currently working on various projects related to interactive websites, applications, and improving user experiences.</p>
-                    <a href="cv/Abdullah_CV.pdf" class="btn btn-outline-primary mt-3" download>Download My CV</a>
+                <div class="col-md-3 mb-3">
+                    <div class="stat-card">
+                        <div class="stat-number" id="active-employees">0</div>
+                        <div>الموظفين النشطين</div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="bg-light py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Skills</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <h5><i class="fas fa-code"></i> HTML & CSS</h5>
-                    <p>Proficient in creating static websites using HTML and CSS, and utilizing libraries like Bootstrap for responsive design.</p>
+                <div class="col-md-3 mb-3">
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-equipment">0</div>
+                        <div>إجمالي المعدات</div>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <h5><i class="fas fa-laptop-code"></i> JavaScript</h5>
-                    <p>Experience in adding interactivity and dynamic functionality to websites using JavaScript.</p>
-                </div>
-                <div class="col-md-4">
-                    <h5><i class="fas fa-server"></i> Backend Development</h5>
-                    <p>Basic experience in backend development with technologies like PHP and Node.js.</p>
+                <div class="col-md-3 mb-3">
+                    <div class="stat-card">
+                        <div class="stat-number" id="working-equipment">0</div>
+                        <div>المعدات العاملة</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="projects" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Projects</h2>
+            
             <div class="row">
                 <div class="col-md-6">
-                    <div class="card mb-4">
-                        <img src="images/project1.jpg" class="card-img-top" alt="Project 1">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-users"></i> إدارة الموظفين</h5>
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title">Interactive Portfolio Website</h5>
-                            <p class="card-text">This project demonstrates my skills in front-end development using HTML, CSS, and JavaScript. It includes interactive elements and animations to enhance user engagement.</p>
-                            <a href="#" class="btn btn-primary">View Project</a>
+                            <p>إدارة شاملة لجميع الموظفين في المؤسسة</p>
+                            <button class="btn btn-primary" onclick="showSection('employees')">
+                                <i class="fas fa-arrow-right"></i> الذهاب إلى الموظفين
+                            </button>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="card mb-4">
-                        <img src="images/project2.jpg" class="card-img-top" alt="Project 2">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-tools"></i> إدارة المعدات</h5>
+                        </div>
                         <div class="card-body">
-                            <h5 class="card-title">Responsive Web Application</h5>
-                            <p class="card-text">This project showcases my ability to create responsive web applications using Bootstrap and JavaScript, providing a seamless experience across different devices.</p>
-                            <a href="#" class="btn btn-primary">View Project</a>
+                            <p>إدارة شاملة لجميع المعدات والآلات</p>
+                            <button class="btn btn-primary" onclick="showSection('equipment')">
+                                <i class="fas fa-arrow-right"></i> الذهاب إلى المعدات
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section id="contact" class="bg-dark text-white py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Contact Me</h2>
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <form>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" required>
+        <!-- Employees Section -->
+        <div id="employees-section" class="section hidden">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5><i class="fas fa-users"></i> إدارة الموظفين</h5>
+                    <button class="btn btn-success" onclick="showAddEmployeeModal()">
+                        <i class="fas fa-plus"></i> إضافة موظف جديد
+                    </button>
+                </div>
+                <div class="card-body">
+                    <!-- Search and Filter -->
+                    <div class="filter-section">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="employee-search" placeholder="البحث في الموظفين..." onkeyup="filterEmployees()">
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-control" id="employee-status-filter" onchange="filterEmployees()">
+                                    <option value="">جميع الحالات</option>
+                                    <option value="على رأس العمل">على رأس العمل</option>
+                                    <option value="إجازة">إجازة</option>
+                                    <option value="نهاية خدمة">نهاية خدمة</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="employee-position-filter" placeholder="فلترة حسب المنصب..." onkeyup="filterEmployees()">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Employees Table -->
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>الاسم الكامل</th>
+                                    <th>رقم الهوية</th>
+                                    <th>المنصب</th>
+                                    <th>رقم الجوال</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="employees-table-body">
+                                <!-- Employees will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Equipment Section -->
+        <div id="equipment-section" class="section hidden">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5><i class="fas fa-tools"></i> إدارة المعدات</h5>
+                    <button class="btn btn-success" onclick="showAddEquipmentModal()">
+                        <i class="fas fa-plus"></i> إضافة معدة جديدة
+                    </button>
+                </div>
+                <div class="card-body">
+                    <!-- Search and Filter -->
+                    <div class="filter-section">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="equipment-search" placeholder="البحث في المعدات..." onkeyup="filterEquipment()">
+                            </div>
+                            <div class="col-md-4">
+                                <select class="form-control" id="equipment-status-filter" onchange="filterEquipment()">
+                                    <option value="">جميع الحالات</option>
+                                    <option value="تعمل">تعمل</option>
+                                    <option value="صيانة">صيانة</option>
+                                    <option value="معطلة">معطلة</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="equipment-type-filter" placeholder="فلترة حسب النوع..." onkeyup="filterEquipment()">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Equipment Table -->
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>اسم المعدة</th>
+                                    <th>رقم اللوحة</th>
+                                    <th>النوع</th>
+                                    <th>الحالة</th>
+                                    <th>تاريخ الشراء</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="equipment-table-body">
+                                <!-- Equipment will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Employee Modal -->
+    <div class="modal fade" id="employeeModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="employeeModalTitle">إضافة موظف جديد</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="employeeForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">الاسم الكامل *</label>
+                                    <input type="text" class="form-control" id="employeeName" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">رقم الهوية/الإقامة *</label>
+                                    <input type="text" class="form-control" id="employeeId" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">تاريخ انتهاء الهوية/الإقامة</label>
+                                    <input type="date" class="form-control" id="employeeIdExpiry">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">الجنسية</label>
+                                    <input type="text" class="form-control" id="employeeNationality">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">المهنة/المنصب *</label>
+                                    <input type="text" class="form-control" id="employeePosition" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">رقم الجوال *</label>
+                                    <input type="tel" class="form-control" id="employeePhone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">تاريخ بدء العمل</label>
+                                    <input type="date" class="form-control" id="employeeStartDate">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">حالة الموظف</label>
+                                    <select class="form-control" id="employeeStatus">
+                                        <option value="على رأس العمل">على رأس العمل</option>
+                                        <option value="إجازة">إجازة</option>
+                                        <option value="نهاية خدمة">نهاية خدمة</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" required>
+                            <label class="form-label">المستندات</label>
+                            <input type="file" class="form-control" id="employeeDocuments" multiple accept="image/*">
+                            <div id="employeeDocumentsPreview" class="mt-2"></div>
                         </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                        <input type="hidden" id="employeeIndex">
                     </form>
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="button" class="btn btn-primary" onclick="saveEmployee()">حفظ</button>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <footer class="text-center py-3">
-        <div class="container">
-            <p>&copy; 2024 Abdullah's Personal Website. All rights reserved.</p>
-            <p>Follow me on: 
-                <a href="#" class="text-white ms-2"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-white ms-2"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="text-white ms-2"><i class="fab fa-github"></i></a>
-            </p>
+    <!-- Equipment Modal -->
+    <div class="modal fade" id="equipmentModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="equipmentModalTitle">إضافة معدة جديدة</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="equipmentForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">اسم المعدة *</label>
+                                    <input type="text" class="form-control" id="equipmentName" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">رقم اللوحة/الرقم التسلسلي *</label>
+                                    <input type="text" class="form-control" id="equipmentSerial" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">نوع المعدة</label>
+                                    <input type="text" class="form-control" id="equipmentType">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">حالة المعدة</label>
+                                    <select class="form-control" id="equipmentStatus">
+                                        <option value="تعمل">تعمل</option>
+                                        <option value="صيانة">صيانة</option>
+                                        <option value="معطلة">معطلة</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">تاريخ الشراء</label>
+                            <input type="date" class="form-control" id="equipmentPurchaseDate">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">صور المعدة والمستندات</label>
+                            <input type="file" class="form-control" id="equipmentDocuments" multiple accept="image/*">
+                            <div id="equipmentDocumentsPreview" class="mt-2"></div>
+                        </div>
+                        <input type="hidden" id="equipmentIndex">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                    <button type="button" class="btn btn-primary" onclick="saveEquipment()">حفظ</button>
+                </div>
+            </div>
         </div>
-    </footer>
+    </div>
 
-    <a href="https://wa.me/1234567890" class="whatsapp-button" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <!-- Employee Profile Modal -->
+    <div class="modal fade" id="employeeProfileModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">ملف الموظف الشخصي</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="employeeProfileContent">
+                    <!-- Profile content will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <!-- Equipment Profile Modal -->
+    <div class="modal fade" id="equipmentProfileModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">ملف المعدة</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="equipmentProfileContent">
+                    <!-- Profile content will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        const toggleLangButton = document.getElementById('toggleLang');
+        // Data Storage
+        let employees = JSON.parse(localStorage.getItem('employees')) || [];
+        let equipment = JSON.parse(localStorage.getItem('equipment')) || [];
 
-        toggleLangButton.addEventListener('click', () => {
-            if (document.documentElement.lang === 'en') {
-                document.documentElement.lang = 'ar';
-                toggleLangButton.textContent = 'EN';
-                document.title = 'موقع عبد الله الشخصي';
-                document.querySelector('header h1').textContent = 'مرحبًا بكم في موقعي الشخصي';
-                document.querySelector('header p').textContent = 'أنا عبد الله، مطور ويب ومهتم بالتقنية';
-                document.querySelector('#about h2').textContent = 'من أنا';
-                document.querySelector('#about p').textContent = 'مرحبًا! اسمي عبد الله، وأنا شغوف بالتكنولوجيا والبرمجة وتطوير الويب. أحب إنشاء مواقع ويب جميلة وتفاعلية لتوفير أفضل تجربة للمستخدم. لدي سنوات من الخبرة في تقنيات الواجهة الأمامية وأنا مكرس للتعلم المستمر والتطوير.';
-                document.querySelector('#skills h2').textContent = 'المهارات';
-                document.querySelector('#projects h2').textContent = 'المشاريع';
-                document.querySelector('#contact h2').textContent = 'تواصل معي';
-            } else {
-                document.documentElement.lang = 'en';
-                toggleLangButton.textContent = 'AR';
-                document.title = "Abdullah's Personal Website";
-                document.querySelector('header h1').textContent = "Welcome to Abdullah's Personal Website";
-                document.querySelector('header p').textContent = "I am Abdullah, a Web Developer and Tech Enthusiast";
-                document.querySelector('#about h2').textContent = 'About Me';
-                document.querySelector('#about p').textContent = 'Hi! My name is Abdullah, and I am passionate about technology, programming, and web development. I love creating beautiful and interactive websites to provide the best user experience. With years of experience in front-end technologies, I am dedicated to continuous learning and development.';
-                document.querySelector('#skills h2').textContent = 'Skills';
-                document.querySelector('#projects h2').textContent = 'Projects';
-                document.querySelector('#contact h2').textContent = 'Contact Me';
-            }
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('dashboard');
+            updateDashboardStats();
+            loadEmployees();
+            loadEquipment();
         });
 
-        function debounce(func, wait) {
-            let timeout;
-            return function (...args) {
-                clearTimeout(timeout);
-                timeout = setTimeout(() => func.apply(this, args), wait);
-            };
+        // Section Management
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionName + '-section').classList.remove('hidden');
+            
+            // Update dashboard stats when showing dashboard
+            if (sectionName === 'dashboard') {
+                updateDashboardStats();
+            }
         }
 
-        window.addEventListener('scroll', debounce(() => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('transparent');
-            } else {
-                navbar.classList.remove('transparent');
+        // Dashboard Statistics
+        function updateDashboardStats() {
+            const totalEmployees = employees.length;
+            const activeEmployees = employees.filter(emp => emp.status === 'على رأس العمل').length;
+            const totalEquipment = equipment.length;
+            const workingEquipment = equipment.filter(eq => eq.status === 'تعمل').length;
+
+            document.getElementById('total-employees').textContent = totalEmployees;
+            document.getElementById('active-employees').textContent = activeEmployees;
+            document.getElementById('total-equipment').textContent = totalEquipment;
+            document.getElementById('working-equipment').textContent = workingEquipment;
+        }
+
+        // Employee Management
+        function showAddEmployeeModal() {
+            document.getElementById('employeeModalTitle').textContent = 'إضافة موظف جديد';
+            document.getElementById('employeeForm').reset();
+            document.getElementById('employeeIndex').value = '';
+            document.getElementById('employeeDocumentsPreview').innerHTML = '';
+            new bootstrap.Modal(document.getElementById('employeeModal')).show();
+        }
+
+        function editEmployee(index) {
+            const employee = employees[index];
+            document.getElementById('employeeModalTitle').textContent = 'تعديل بيانات الموظف';
+            document.getElementById('employeeName').value = employee.name;
+            document.getElementById('employeeId').value = employee.id;
+            document.getElementById('employeeIdExpiry').value = employee.idExpiry || '';
+            document.getElementById('employeeNationality').value = employee.nationality || '';
+            document.getElementById('employeePosition').value = employee.position;
+            document.getElementById('employeePhone').value = employee.phone;
+            document.getElementById('employeeStartDate').value = employee.startDate || '';
+            document.getElementById('employeeStatus').value = employee.status;
+            document.getElementById('employeeIndex').value = index;
+            
+            // Show existing documents
+            showDocumentPreviews('employeeDocumentsPreview', employee.documents || []);
+            
+            new bootstrap.Modal(document.getElementById('employeeModal')).show();
+        }
+
+        function saveEmployee() {
+            const name = document.getElementById('employeeName').value;
+            const id = document.getElementById('employeeId').value;
+            const idExpiry = document.getElementById('employeeIdExpiry').value;
+            const nationality = document.getElementById('employeeNationality').value;
+            const position = document.getElementById('employeePosition').value;
+            const phone = document.getElementById('employeePhone').value;
+            const startDate = document.getElementById('employeeStartDate').value;
+            const status = document.getElementById('employeeStatus').value;
+            const index = document.getElementById('employeeIndex').value;
+
+            if (!name || !id || !position || !phone) {
+                alert('الرجاء ملء جميع الحقول المطلوبة');
+                return;
             }
-        }, 100));
+
+            const employee = {
+                name, id, idExpiry, nationality, position, phone, startDate, status,
+                documents: [], // Will be handled by file upload
+                createdAt: index ? employees[index].createdAt : new Date().toISOString()
+            };
+
+            // Handle file uploads
+            const fileInput = document.getElementById('employeeDocuments');
+            if (fileInput.files.length > 0) {
+                handleFileUploads(fileInput.files, (documents) => {
+                    employee.documents = documents;
+                    saveEmployeeData(employee, index);
+                });
+            } else {
+                if (index) {
+                    employee.documents = employees[index].documents || [];
+                }
+                saveEmployeeData(employee, index);
+            }
+        }
+
+        function saveEmployeeData(employee, index) {
+            if (index !== '') {
+                employees[index] = employee;
+            } else {
+                employees.push(employee);
+            }
+            
+            localStorage.setItem('employees', JSON.stringify(employees));
+            loadEmployees();
+            updateDashboardStats();
+            bootstrap.Modal.getInstance(document.getElementById('employeeModal')).hide();
+        }
+
+        function deleteEmployee(index) {
+            if (confirm('هل أنت متأكد من حذف هذا الموظف؟')) {
+                employees.splice(index, 1);
+                localStorage.setItem('employees', JSON.stringify(employees));
+                loadEmployees();
+                updateDashboardStats();
+            }
+        }
+
+        function loadEmployees() {
+            const tbody = document.getElementById('employees-table-body');
+            tbody.innerHTML = '';
+
+            employees.forEach((employee, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${employee.name}</td>
+                    <td>${employee.id}</td>
+                    <td>${employee.position}</td>
+                    <td>${employee.phone}</td>
+                    <td><span class="status-${employee.status === 'على رأس العمل' ? 'active' : employee.status === 'إجازة' ? 'maintenance' : 'inactive'}">${employee.status}</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" onclick="showEmployeeProfile(${index})">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn btn-sm btn-warning" onclick="editEmployee(${index})">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteEmployee(${index})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function showEmployeeProfile(index) {
+            const employee = employees[index];
+            const content = document.getElementById('employeeProfileContent');
+            
+            content.innerHTML = `
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>الاسم الكامل:</h6>
+                        <p>${employee.name}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>رقم الهوية/الإقامة:</h6>
+                        <p>${employee.id}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>تاريخ انتهاء الهوية:</h6>
+                        <p>${employee.idExpiry || 'غير محدد'}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>الجنسية:</h6>
+                        <p>${employee.nationality || 'غير محدد'}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>المهنة/المنصب:</h6>
+                        <p>${employee.position}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>رقم الجوال:</h6>
+                        <p>${employee.phone}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>تاريخ بدء العمل:</h6>
+                        <p>${employee.startDate || 'غير محدد'}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>حالة الموظف:</h6>
+                        <p><span class="status-${employee.status === 'على رأس العمل' ? 'active' : employee.status === 'إجازة' ? 'maintenance' : 'inactive'}">${employee.status}</span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h6>المستندات:</h6>
+                        <div id="profileDocuments">
+                            ${employee.documents && employee.documents.length > 0 ? 
+                                employee.documents.map(doc => `<img src="${doc}" class="image-preview" alt="مستند">`).join('') : 
+                                '<p>لا توجد مستندات مرفوعة</p>'
+                            }
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            new bootstrap.Modal(document.getElementById('employeeProfileModal')).show();
+        }
+
+        // Equipment Management
+        function showAddEquipmentModal() {
+            document.getElementById('equipmentModalTitle').textContent = 'إضافة معدة جديدة';
+            document.getElementById('equipmentForm').reset();
+            document.getElementById('equipmentIndex').value = '';
+            document.getElementById('equipmentDocumentsPreview').innerHTML = '';
+            new bootstrap.Modal(document.getElementById('equipmentModal')).show();
+        }
+
+        function editEquipment(index) {
+            const eq = equipment[index];
+            document.getElementById('equipmentModalTitle').textContent = 'تعديل بيانات المعدة';
+            document.getElementById('equipmentName').value = eq.name;
+            document.getElementById('equipmentSerial').value = eq.serial;
+            document.getElementById('equipmentType').value = eq.type || '';
+            document.getElementById('equipmentStatus').value = eq.status;
+            document.getElementById('equipmentPurchaseDate').value = eq.purchaseDate || '';
+            document.getElementById('equipmentIndex').value = index;
+            
+            // Show existing documents
+            showDocumentPreviews('equipmentDocumentsPreview', eq.documents || []);
+            
+            new bootstrap.Modal(document.getElementById('equipmentModal')).show();
+        }
+
+        function saveEquipment() {
+            const name = document.getElementById('equipmentName').value;
+            const serial = document.getElementById('equipmentSerial').value;
+            const type = document.getElementById('equipmentType').value;
+            const status = document.getElementById('equipmentStatus').value;
+            const purchaseDate = document.getElementById('equipmentPurchaseDate').value;
+            const index = document.getElementById('equipmentIndex').value;
+
+            if (!name || !serial) {
+                alert('الرجاء ملء جميع الحقول المطلوبة');
+                return;
+            }
+
+            const eq = {
+                name, serial, type, status, purchaseDate,
+                documents: [], // Will be handled by file upload
+                createdAt: index ? equipment[index].createdAt : new Date().toISOString()
+            };
+
+            // Handle file uploads
+            const fileInput = document.getElementById('equipmentDocuments');
+            if (fileInput.files.length > 0) {
+                handleFileUploads(fileInput.files, (documents) => {
+                    eq.documents = documents;
+                    saveEquipmentData(eq, index);
+                });
+            } else {
+                if (index) {
+                    eq.documents = equipment[index].documents || [];
+                }
+                saveEquipmentData(eq, index);
+            }
+        }
+
+        function saveEquipmentData(eq, index) {
+            if (index !== '') {
+                equipment[index] = eq;
+            } else {
+                equipment.push(eq);
+            }
+            
+            localStorage.setItem('equipment', JSON.stringify(equipment));
+            loadEquipment();
+            updateDashboardStats();
+            bootstrap.Modal.getInstance(document.getElementById('equipmentModal')).hide();
+        }
+
+        function deleteEquipment(index) {
+            if (confirm('هل أنت متأكد من حذف هذه المعدة؟')) {
+                equipment.splice(index, 1);
+                localStorage.setItem('equipment', JSON.stringify(equipment));
+                loadEquipment();
+                updateDashboardStats();
+            }
+        }
+
+        function loadEquipment() {
+            const tbody = document.getElementById('equipment-table-body');
+            tbody.innerHTML = '';
+
+            equipment.forEach((eq, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${eq.name}</td>
+                    <td>${eq.serial}</td>
+                    <td>${eq.type || 'غير محدد'}</td>
+                    <td><span class="status-${eq.status === 'تعمل' ? 'active' : eq.status === 'صيانة' ? 'maintenance' : 'inactive'}">${eq.status}</span></td>
+                    <td>${eq.purchaseDate || 'غير محدد'}</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" onclick="showEquipmentProfile(${index})">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                        <button class="btn btn-sm btn-warning" onclick="editEquipment(${index})">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteEquipment(${index})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function showEquipmentProfile(index) {
+            const eq = equipment[index];
+            const content = document.getElementById('equipmentProfileContent');
+            
+            content.innerHTML = `
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>اسم المعدة:</h6>
+                        <p>${eq.name}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>رقم اللوحة/الرقم التسلسلي:</h6>
+                        <p>${eq.serial}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>نوع المعدة:</h6>
+                        <p>${eq.type || 'غير محدد'}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>حالة المعدة:</h6>
+                        <p><span class="status-${eq.status === 'تعمل' ? 'active' : eq.status === 'صيانة' ? 'maintenance' : 'inactive'}">${eq.status}</span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>تاريخ الشراء:</h6>
+                        <p>${eq.purchaseDate || 'غير محدد'}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>تاريخ الإضافة:</h6>
+                        <p>${new Date(eq.createdAt).toLocaleDateString('ar-SA')}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h6>صور المعدة والمستندات:</h6>
+                        <div id="profileEquipmentDocuments">
+                            ${eq.documents && eq.documents.length > 0 ? 
+                                eq.documents.map(doc => `<img src="${doc}" class="image-preview" alt="مستند">`).join('') : 
+                                '<p>لا توجد مستندات مرفوعة</p>'
+                            }
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            new bootstrap.Modal(document.getElementById('equipmentProfileModal')).show();
+        }
+
+        // File Upload Handling
+        function handleFileUploads(files, callback) {
+            const documents = [];
+            let processedFiles = 0;
+
+            if (files.length === 0) {
+                callback(documents);
+                return;
+            }
+
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    documents.push(e.target.result);
+                    processedFiles++;
+                    if (processedFiles === files.length) {
+                        callback(documents);
+                    }
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function showDocumentPreviews(containerId, documents) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            documents.forEach(doc => {
+                const img = document.createElement('img');
+                img.src = doc;
+                img.className = 'image-preview';
+                img.alt = 'مستند';
+                container.appendChild(img);
+            });
+        }
+
+        // File preview on selection
+        document.getElementById('employeeDocuments').addEventListener('change', function(e) {
+            const files = e.target.files;
+            const preview = document.getElementById('employeeDocumentsPreview');
+            preview.innerHTML = '';
+            
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.className = 'image-preview';
+                    img.alt = 'معاينة المستند';
+                    preview.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            });
+        });
+
+        document.getElementById('equipmentDocuments').addEventListener('change', function(e) {
+            const files = e.target.files;
+            const preview = document.getElementById('equipmentDocumentsPreview');
+            preview.innerHTML = '';
+            
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.className = 'image-preview';
+                    img.alt = 'معاينة المستند';
+                    preview.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            });
+        });
+
+        // Search and Filter Functions
+        function filterEmployees() {
+            const searchTerm = document.getElementById('employee-search').value.toLowerCase();
+            const statusFilter = document.getElementById('employee-status-filter').value;
+            const positionFilter = document.getElementById('employee-position-filter').value.toLowerCase();
+            
+            const tbody = document.getElementById('employees-table-body');
+            const rows = tbody.getElementsByTagName('tr');
+            
+            for (let i = 0; i < rows.length; i++) {
+                const row = rows[i];
+                const name = row.cells[0].textContent.toLowerCase();
+                const id = row.cells[1].textContent.toLowerCase();
+                const position = row.cells[2].textContent.toLowerCase();
+                const status = row.cells[4].textContent.trim();
+                
+                const matchesSearch = name.includes(searchTerm) || id.includes(searchTerm);
+                const matchesStatus = !statusFilter || status === statusFilter;
+                const matchesPosition = !positionFilter || position.includes(positionFilter);
+                
+                if (matchesSearch && matchesStatus && matchesPosition) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            }
+        }
+
+        function filterEquipment() {
+            const searchTerm = document.getElementById('equipment-search').value.toLowerCase();
+            const statusFilter = document.getElementById('equipment-status-filter').value;
+            const typeFilter = document.getElementById('equipment-type-filter').value.toLowerCase();
+            
+            const tbody = document.getElementById('equipment-table-body');
+            const rows = tbody.getElementsByTagName('tr');
+            
+            for (let i = 0; i < rows.length; i++) {
+                const row = rows[i];
+                const name = row.cells[0].textContent.toLowerCase();
+                const serial = row.cells[1].textContent.toLowerCase();
+                const type = row.cells[2].textContent.toLowerCase();
+                const status = row.cells[3].textContent.trim();
+                
+                const matchesSearch = name.includes(searchTerm) || serial.includes(searchTerm);
+                const matchesStatus = !statusFilter || status === statusFilter;
+                const matchesType = !typeFilter || type.includes(typeFilter);
+                
+                if (matchesSearch && matchesStatus && matchesType) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            }
+        }
     </script>
 </body>
 </html>
